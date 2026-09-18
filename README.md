@@ -1,5 +1,4 @@
 # Multiple server with infinite capacity - (M/M/c):(oo/FIFO)
-## Aim :
 To find (a) average number of materials in the system (b) average number of materials in the conveyor (c) waiting time of each material in the system (d) waiting time of each material in the conveyor, if the arrival  of materials follow poisson process with the mean interval time 10 seconds, serivice time of two lathe machine follow exponential distribution with mean serice time 1 second and average service time of robot is 7seconds.
 
 ## Software required :
@@ -18,13 +17,15 @@ Queuing are the most frequently encountered problems in everyday life. For examp
 
 
 ## Experiment:
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/57dba3ec-bea7-4d97-8a0d-7a96a46e28c3" />
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/131ed75a-ae03-45d6-bddb-110e99fdee6c" />
 
-![Screenshot 2025-05-17 132558](https://github.com/user-attachments/assets/1c597b73-5e6a-46fb-b686-16320ea06748)
 
-![Screenshot 2025-05-17 132625](https://github.com/user-attachments/assets/c37baa85-8ab8-4ba5-8839-410afc096e62)
 
 ## Program
-~~~
+
+
+```
 import math
 arr_time=float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
 ser_time=float(input("Enter the mean  inter service time of Lathe Machine (in secs) :  "))
@@ -35,8 +36,8 @@ mu=1/(ser_time+Robot_time)
 print("--------------------------------------------------------------")
 print("Multiple Server with Infinite Capacity - (M/M/c):(oo/FIFO)")
 print("--------------------------------------------------------------")
-print(f"The mean arrival rate per second : {lam:.2f}")
-print(f"The mean service rate per second : {mu:.2f}")
+print("The mean arrival rate per second : %0.2f "%lam)
+print("The mean service rate per second : %0.2f "%mu)
 rho=lam/(c*mu)
 sum=(lam/mu)**c*(1/(1-rho))/math.factorial(c)
 for i in range(0,c):
@@ -47,21 +48,20 @@ if (rho<1):
     Ls=Lq+lam/mu
     Ws=Ls/lam
     Wq=Lq/lam
-    print(f"Average number of objects in the system : {Ls:.2f}")
-    print(f"Average number of objects in the conveyor : {Lq:.2f}")
-    print(f"Average waiting time of an object in the system : {Ws:.2f} secs")
-    print(f"Average waiting time of an object in the conveyor : {Wq:.2f} secs")
-    print(f"Probability that the system is busy : {rho:.2f}")
-    print(f"Probability that the system is empty : {(1-rho):.2f}")
+    print("Average number of objects in the system : %0.2f "%Ls)
+    print("Average number of objects in the conveyor :  %0.2f "%Lq)
+    print("Average waiting time of an object in the system : %0.2f secs"%Ws)
+    print("Average waiting time of an object in the conveyor : %0.2f secs"%Wq)
+    print("Probability that the system is busy : %0.2f "%(rho))
+    print("Probability that the system is empty : %0.2f "%(1-rho))
 else:
     print("Warning! Objects Over flow will happen in the conveyor")
 print("--------------------------------------------------------------")
-
-
-~~~
+```
 
 ## Output :
-<img width="771" height="330" alt="image" src="https://github.com/user-attachments/assets/a0bacf1b-4f57-40f9-9c83-7fd4f6f14464" />
+<img width="708" height="372" alt="image" src="https://github.com/user-attachments/assets/4c51147a-bf58-4f2c-8abc-6bf16f0ea46b" />
+
 
 ## Result : 
-Therfore,the Multiple server with infinite capacity is verified sucessfully
+The average number of material in the system and in the conveyor and waiting are successfully found.

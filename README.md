@@ -18,12 +18,25 @@ Queuing are the most frequently encountered problems in everyday life. For examp
 
 
 ## Experiment:
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/57dba3ec-bea7-4d97-8a0d-7a96a46e28c3" />
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/131ed75a-ae03-45d6-bddb-110e99fdee6c" />
 
 
-## Program
 
+## Program 
 
-## Output :
-
-## Result : 
-
+```
+import math
+arr_time=float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
+ser_time=float(input("Enter the mean  inter service time of Lathe Machine (in secs) :  "))
+Robot_time=float(input("Enter the Additional time taken for the Robot (in secs) :  "))
+c=int(input("Number of service centre :  "))
+lam=1/arr_time
+mu=1/(ser_time+Robot_time)
+print("--------------------------------------------------------------")
+print("Multiple Server with Infinite Capacity - (M/M/c):(oo/FIFO)")
+print("--------------------------------------------------------------")
+print("The mean arrival rate per second : %0.2f "%lam)
+print("The mean service rate per second : %0.2f "%mu)
+rho=lam/(c*mu)
+sum=(lam/mu)**c*(1/(1-rho))/math.factorial(c)
